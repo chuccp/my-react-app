@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+"use strict";
 const concurrently = require('concurrently');
 const { Writable } = require('stream');
 const dotenv = require("dotenv")

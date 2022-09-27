@@ -17,8 +17,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "tt": "node test",
     "start": "react-scripts start",
-    "electron:react:dev": "node ./dev.js",
+    "electron:react:dev": "node dev",
     "electron": "electron .",
     "build": "react-scripts build",
     "test": "react-scripts test",
