@@ -1,4 +1,4 @@
-const { app, BrowserWindow,Menu } = require('electron')
+const { app, BrowserWindow,Menu,ipcMain  } = require('electron')
 const path = require('path')
 const dotenv = require("dotenv")
 const {httpServer}  = require("./httpServer")
@@ -26,12 +26,20 @@ const createWindow = () => {
     ]
   const menu =  Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
-
+    ipcMain.handle('start',(ev,port,path)=>{
+        httpServer.start(port,path);
+    })
+    ipcMain.handle('stop',()=>{
+        httpServer.stop();
+    })
+    ipcMain.handle('write',(ev,text)=>{
+        httpServer.write(text);
+    })
 }
 
 app.whenReady().then(() => {
     createWindow();
-    httpServer.start();
+
 })
 
 app.on('window-all-closed', () => {

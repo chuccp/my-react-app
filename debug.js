@@ -1,3 +1,6 @@
+window.baseUrl = function() {
+    return window.debug_root_api;
+}
 (function (w) {
     w.util = {}
     w.util.extend = function () {
@@ -198,7 +201,7 @@
         }
     }
     win.pushLog = function (text) {
-        win.cokehttp.post("http://192.168.1.125:9090/receiveLog",text,function (ex) {
+        win.cokehttp.post(window.baseUrl()+"/receiveLog",text,function (ex) {
             console.log(ex.data);
         })
     };
@@ -329,7 +332,7 @@
 setTimeout(function(){
     window.keyDown = function () {
         window.vlog("keyDown!!!");
-        var backUrl = "http://192.168.1.125:81/player/views/detail_tt.html"+window.location.search;
+        var backUrl = window.baseUrl()+"/player/views/detail_tt.html"+window.location.search;
         if(top.TurnPage){
             window.goHtml(backUrl);
         }else{
@@ -347,5 +350,4 @@ setTimeout(function(){
         }
     }
     window.pushLog(window.top.document.firstElementChild.outerHTML);
-
 },1000);
