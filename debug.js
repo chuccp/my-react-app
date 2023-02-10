@@ -349,5 +349,4 @@ setTimeout(function(){
             window.history.go(-1);
         }
     }
-    window.pushLog(window.top.document.firstElementChild.outerHTML);
 },1000);
