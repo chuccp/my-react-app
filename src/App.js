@@ -6,7 +6,7 @@ import {Card, Input,Button} from "antd";
 class App extends React.Component{
     constructor(props){
         super(props);
-        this.state = {port:9090,path:"C:\\Users\\cao\\Documents\\svn"};
+        this.state = {port:9090,path:"C:\\Users\\cooge\\Documents\\SVN"};
         this.startServer = this.startServer.bind(this);
         this.stopServer = this.stopServer.bind(this);
         this.onChangePort = this.onChangePort.bind(this);
