@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 "use strict";
+console.log("开始执行")
 const concurrently = require('concurrently');
 const { Writable } = require('stream');
 const dotenv = require("dotenv")
@@ -17,7 +18,7 @@ const myStream = new Writable({decodeStrings: false,
         callback()
     }
 });
-const reactExec = concurrently([{command: 'react-scripts start'}],{outputStream:myStream})
+const reactExec = concurrently([{command: 'SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start'}],{outputStream:myStream})
 function startElectron() {
     const {result} = concurrently(['electron .'],{outputStream:process.stdout})
     result.then(()=>{
