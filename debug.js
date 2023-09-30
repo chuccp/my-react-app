@@ -8,7 +8,7 @@ window.baseUrl = function() {
         for (var i = 0; i < arguments.length; i++) {
             var value = arguments[i];
             if(typeof value=="object"){
-                for(var key in value){
+                for(const key in value){
                     data[key] = value[key];
                 }
             }
